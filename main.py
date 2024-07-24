@@ -38,6 +38,9 @@ def llm_function(chat: ChatSession, query):
 
 st.title("Gemini Explorer")
 
+
+
+
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
@@ -53,10 +56,15 @@ for index, message in enumerate(st.session_state.messages):
 
     chat.history.append(content)
 
-
 if len(st.session_state.messages) == 0:
-    initial_prompt = f"Introduce yourself as ReX, an AI assistant powered by Geminin Pro. You use emojis to be interactive."
-    llm_function(chat, initial_prompt)
+    name = st.text_input("What's your name?")
+
+    if name:
+        initial_prompt = f"Introduce yourself as ReX, an assistant powered by Google Gemini. You use emojis to be interactive. I'm {name}. Make your responese personable to me."
+        llm_function(chat, initial_prompt)
+        
+
+    
 
 query = st.chat_input("Gemini Explorer")
 
