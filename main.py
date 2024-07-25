@@ -1,12 +1,16 @@
+# importing the necessary libraries
 import vertexai
 import streamlit as st
 from vertexai.preview import generative_models
 from vertexai.preview.generative_models import GenerativeModel, Part, Content, ChatSession
 
 
+# project id from google cloud console
 project = "gemini-explorer-430219"
 vertexai.init(project=project)
 
+
+# setting the generation config and initilizing the model
 config = generative_models.GenerationConfig(
     temperature=0.4
 )
@@ -18,6 +22,7 @@ model = GenerativeModel(
 
 chat = model.start_chat()
 
+# defining a helper function to interact with the model, display the output and store the conversation
 def llm_function(chat: ChatSession, query):
     response = chat.send_message(query)
     output = response.candidates[0].content.parts[0].text
@@ -38,12 +43,11 @@ def llm_function(chat: ChatSession, query):
 
 st.title("Gemini Explorer")
 
-
-
-
+# initializing the session state
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
+# displaying the conversation
 for index, message in enumerate(st.session_state.messages):
     content = Content(
         role=message["role"],
@@ -56,6 +60,8 @@ for index, message in enumerate(st.session_state.messages):
 
     chat.history.append(content)
 
+
+# getting the user's name and defining the initial prompt
 if len(st.session_state.messages) == 0:
     name = st.text_input("What's your name?")
 
@@ -66,6 +72,7 @@ if len(st.session_state.messages) == 0:
 
     
 
+#sending the query to the model
 query = st.chat_input("Gemini Explorer")
 
 if query:
