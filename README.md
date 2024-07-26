@@ -4,15 +4,15 @@
 
 ### Tasks
 
-Enable Google Cloud
+1.Enable Google Cloud
 
-Google Cloud Initialization
+2. Google Cloud Initialization
 
-Setting up Google Gemini
+3. Setting up Google Gemini
 
-Streamlit Integration
+4. Streamlit Integration
 
-Adding Initial System Messages
+5. Adding Initial System Messages
 
 
 ### Installation
@@ -20,12 +20,13 @@ Adding Initial System Messages
 Initialize google cloud.
 
 Install the required libraries.
-* npm
-  ```sh
-  npm install i
-  ```
+
+   ```sh
+   npm install i
+   ```
 
 Run via streamlit.
+
   ```sh
   streamlit run main.py
   ```
