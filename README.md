@@ -33,3 +33,7 @@ Run via streamlit.
   streamlit run main.py
   ```
 
+
+### Additional Info
+Check out the slides Gemini-Explorer.pdf for additional information about this project.
+
