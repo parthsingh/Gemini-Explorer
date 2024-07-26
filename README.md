@@ -1,5 +1,3 @@
-##
-Gemini Explorer 
+##Gemini Explorer 
 
-#
-Radical AI Lab Mission
+#Radical AI Lab Mission
